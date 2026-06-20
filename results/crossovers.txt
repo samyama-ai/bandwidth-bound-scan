@@ -1,0 +1,45 @@
+# H2: select time vs selectivity. branchy ~ A + B*sigma(1-sigma); predicated ~ const C.
+# branch-free (predicated) wins in the band where branchy is slower.
+
+[M4] branchy peak at sigma=0.5 (max mispredict). A=12200064ns B=542461541ns C(pred)=16646500ns
+  model: predicated wins in sigma in (0.008, 0.992)
+  measured: predicated wins at sigma in [0.0010, 0.9900]
+  H2 verdict: CONFIRMED (mid-sigma band exists)
+
+[i9-9980HK] branchy peak at sigma=0.5 (max mispredict). A=24393121ns B=712576727ns C(pred)=42522500ns
+  model: predicated wins in sigma in (0.026, 0.974)
+  measured: predicated wins at sigma in [0.0500, 0.9000]
+  H2 verdict: CONFIRMED (mid-sigma band exists)
+
+# H3: zone-map skip vs full scan. zonemap reads only un-skippable blocks' bytes.
+# threshold sigma_skip below which zonemap effective throughput beats full-scan roofline.
+
+[M4] random(NC2): bytes_read(zone)/full by sigma:
+   sigma=0.0001  bytes_ratio=0.611  zone_faster=False
+   sigma=0.0010  bytes_ratio=1.000  zone_faster=False
+   sigma=0.0100  bytes_ratio=1.000  zone_faster=False
+   sigma=0.1000  bytes_ratio=1.000  zone_faster=False
+   sigma=0.5000  bytes_ratio=1.000  zone_faster=False
+
+[M4] clustered: bytes_read(zone)/full by sigma:
+   sigma=0.0001  bytes_ratio=0.000  zone_faster=True
+   sigma=0.0010  bytes_ratio=0.000  zone_faster=True
+   sigma=0.0100  bytes_ratio=0.000  zone_faster=True
+   sigma=0.1000  bytes_ratio=0.000  zone_faster=True
+   sigma=0.5000  bytes_ratio=0.000  zone_faster=True
+   sigma_skip threshold ~ zone wins for sigma <= 0.5000
+
+[i9-9980HK] random(NC2): bytes_read(zone)/full by sigma:
+   sigma=0.0001  bytes_ratio=0.611  zone_faster=False
+   sigma=0.0010  bytes_ratio=1.000  zone_faster=False
+   sigma=0.0100  bytes_ratio=1.000  zone_faster=False
+   sigma=0.1000  bytes_ratio=1.000  zone_faster=False
+   sigma=0.5000  bytes_ratio=1.000  zone_faster=False
+
+[i9-9980HK] clustered: bytes_read(zone)/full by sigma:
+   sigma=0.0001  bytes_ratio=0.000  zone_faster=True
+   sigma=0.0010  bytes_ratio=0.000  zone_faster=True
+   sigma=0.0100  bytes_ratio=0.000  zone_faster=True
+   sigma=0.1000  bytes_ratio=0.000  zone_faster=True
+   sigma=0.5000  bytes_ratio=0.000  zone_faster=True
+   sigma_skip threshold ~ zone wins for sigma <= 0.5000

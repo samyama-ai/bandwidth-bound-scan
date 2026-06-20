@@ -1,0 +1,9 @@
+# build artifacts
+scanbench
+test_codecs
+*.o
+*.dSYM/
+__pycache__/
+*.pyc
+
+# keep results/ (committed CSVs + figures, regenerable by `make repro`)

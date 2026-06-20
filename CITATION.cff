@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite it."
+title: "bandwidth-bound-scan: a predictive bandwidth-fraction law for columnar scans"
+abstract: >-
+  An open micro-benchmark and a closed-form model for when a columnar scan is
+  memory-bandwidth-bound versus compute-bound. The achieved bandwidth fraction is
+  f = min(1, T_dec*b/(8*beta)), where the decoder value-throughput T_dec is independent
+  of bit-width; the compute-to-bandwidth ridge sits at b* = 8*beta/T_dec. Validated on
+  x86/AVX2 and Apple M4/NEON, with the branch-misprediction and zone-map-clustering crossovers.
+authors:
+  - name: "Samyama.ai"
+type: software
+license: MIT
+repository-code: "https://github.com/samyama-ai/bandwidth-bound-scan"
+keywords:
+  - columnar-scan
+  - roofline
+  - memory-bandwidth
+  - SIMD
+  - bit-packing
+  - FastLanes
+  - zone-maps

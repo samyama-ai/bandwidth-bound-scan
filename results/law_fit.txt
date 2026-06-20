@@ -1,0 +1,12 @@
+# H1 bandwidth-fraction law: f_hat = min(1, T_dec * b / (8*beta))
+# T_dec fitted per (machine,strategy) as median(read_gbps*8/b) over compute-bound pts (f<0.55)
+machine      strategy                  beta  T_dec(Gv/s)     b*  med|f-fhat|   n
+M4           byte-aligned              70.2        9.041   62.1       0.0078   6
+M4           fastlanes(transposed)     70.2        8.360   67.1       0.0221  20
+M4           scalar(row-major)         70.2        2.058  272.7       0.0002  14
+i9-9980HK    byte-aligned              14.3        5.736   20.0       0.0400   6
+i9-9980HK    fastlanes(transposed)     14.3        3.912   29.3       0.0887  20
+i9-9980HK    scalar(row-major)         14.3        0.269  426.3       0.0005  14
+
+median |f - fhat| on M4: 0.0030  (bar 0.15) -> PASS
+median |f - fhat| on i9-9980HK: 0.0270  (bar 0.1) -> PASS

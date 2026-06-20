@@ -1,0 +1,3 @@
+machine=i9-9980HK arch=x86_64
+beta_scan_read  = 15.83 GB/s
+beta_stream_triad = 17.53 GB/s

@@ -1,0 +1,3 @@
+machine=M4 arch=arm64
+beta_scan_read  = 69.89 GB/s
+beta_stream_triad = 93.16 GB/s
