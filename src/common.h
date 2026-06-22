@@ -1,4 +1,5 @@
-/* common.h — timing, RNG, aligned alloc. Portable across x86_64 and arm64 (Apple). */
+/* common.h — timing, RNG, aligned alloc. Portable across x86_64 and arm64 (Apple/Linux).
+ * Note: build with -std=gnu11 (not c11) so Linux exposes CLOCK_MONOTONIC/posix_memalign. */
 #ifndef BBS_COMMON_H
 #define BBS_COMMON_H
 
