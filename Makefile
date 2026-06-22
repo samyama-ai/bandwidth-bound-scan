@@ -1,7 +1,7 @@
 # bandwidth-bound-scan — roofline micro-benchmark harness
 # Native build: -O3 -march=native so the compiler auto-vectorizes (the FastLanes premise).
 CC      ?= cc
-CFLAGS  ?= -O3 -march=native -std=c11 -Wall -Wextra
+CFLAGS  ?= -O3 -march=native -std=gnu11 -Wall -Wextra
 LDFLAGS ?=
 
 SRC := src/roofline.c src/codecs.c src/scanbench.c
