@@ -3,6 +3,8 @@
 **A predictive bandwidth-fraction law for columnar scans — and the open micro-benchmark that
 fits it — validated on two ISAs (x86/AVX2 and Apple M4/NEON).**
 
+📄 Preprint: **[arXiv:2606.22423](https://arxiv.org/abs/2606.22423)** (cs.DB).
+
 > Reproducible baseline for the problem `29-hardware-conscious-db/bandwidth-bound-scan` in the
 > [DBMS Research catalog](https://github.com/samyama-ai/dbms_research). **Not** a new SOTA kernel:
 > a *closed-form model* of when a columnar scan is memory-bandwidth-bound vs compute-bound, plus
